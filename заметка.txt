@@ -1,0 +1,33 @@
+Как работать с Qunit тестаами?
+
+1) подкоючить две ссылки перед title:
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.22.0.css">
+<script src="https://code.jquery.com/qunit/qunit-1.22.0.js"></script>
+
+
+2) в body создаем два дива:
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+
+3) пишем скрипт в html:
+
+<script>
+        function add(a, b) {
+            return a + b;
+        }
+        QUnit.test("TestAdd", function (assert) {
+            var result = add(2,3);
+            assert.equal(result, "5", "2+3=5");
+        });
+
+        QUnit.test("TestAdd", function (assert) {
+            var result = add(2,3);
+            assert.equal(result, "4", "2+3=4");
+        });
+
+        QUnit.test("TestAdd", function (assert) {
+            var result = add(3,3);
+            assert.equal(result, "6", "3+3=6");
+        });
+
+Тут пишеться фунция котороая будет тестироваться и сами Qunit тесты
